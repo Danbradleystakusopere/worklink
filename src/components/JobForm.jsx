@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./JobForm.css"; // Import your CSS file
+
 
 function JobForm({ onAddJob }) {
   const [title, setTitle] = useState("");
@@ -26,37 +28,42 @@ function JobForm({ onAddJob }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="job-form">
       <h2>Post a New Job</h2>
-      <input
-        type="text"
-        placeholder="Job Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        required
-      />
-      <br />
-      <textarea
-        placeholder="Job Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        required
-      ></textarea>
-      <br />
-      <select
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-        required
-      >
-        <option value="">Select Category</option>
-        <option value="Web Development">Web Development</option>
-        <option value="Design">Design</option>
-        <option value="Writing">Writing</option>
-        <option value="Marketing">Marketing</option>
-      </select>
-      <br />
-      <button type="submit">Post Job</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <label>Job Title</label>
+        <input
+          type="text"
+          placeholder="Enter job title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+
+        <label>Job Description</label>
+        <textarea
+          placeholder="Enter job description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        ></textarea>
+
+        <label>Category</label>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+        >
+          <option value="">Select Category</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Design">Design</option>
+          <option value="Writing">Writing</option>
+          <option value="Marketing">Marketing</option>
+        </select>
+
+        <button type="submit">Post Job</button>
+      </form>
+    </div>
   );
 }
 
