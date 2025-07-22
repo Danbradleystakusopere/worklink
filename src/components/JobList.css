@@ -1,0 +1,47 @@
+.job-list {
+  background-color: aliceblue;
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+}
+
+.job-card {
+  border: 2px solid steelblue;
+  border-radius: 12px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.job-card h3 {
+  color: midnightblue;
+  margin-bottom: 10px;
+}
+
+.job-card p {
+  color: dimgray;
+  margin: 6px 0;
+}
+
+.job-category {
+  display: inline-block;
+  background-color: teal;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.job-card button {
+  background-color: royalblue;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.job-card button:hover {
+  background-color: dodgerblue;
+}

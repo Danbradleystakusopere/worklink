@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import JobForm from "./components/JobForm";
+import JobList from "./components/JobList";
 
 function App() {
   const [jobs, setJobs] = useState([]);
@@ -18,15 +19,7 @@ function App() {
     <div className="App">
       <h1>WorkLink - Remote Jobs Board</h1>
       <JobForm onAddJob={handleAddJob} />
-      <ul>
-        {jobs.map((job) => (
-          <li key={job.id}>
-            <h3>{job.title}</h3>
-            <p>{job.description}</p>
-            <small>{job.category}</small>
-          </li>
-        ))}
-      </ul>
+      <JobList jobs={jobs} /> {/* ✅ This fixes the warning */}
     </div>
   );
 }
