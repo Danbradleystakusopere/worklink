@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: rgb(218, 102, 102);
   box-shadow: 0 2px 4px rgba(192, 5, 5, 0.1);
 }
 
