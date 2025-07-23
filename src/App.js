@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import JobForm from "./components/JobForm";
 import JobList from "./components/JobList";
-import JobDetails from "./components/JobDetails"; // 👈 make sure this exists
+import JobDetails from "./components/JobDetails";
 
 function App() {
   const [jobs, setJobs] = useState([]);
-  const [selectedJob, setSelectedJob] = useState(null); // 👈 new state
+  const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:3001/jobs")
@@ -45,6 +45,10 @@ function App() {
     setSelectedJob(job);
   }
 
+  function handleCloseDetails() {
+    setSelectedJob(null);
+  }
+
   return (
     <div className="App">
       <h1>WorkLink - Remote Jobs Board</h1>
@@ -53,10 +57,10 @@ function App() {
         jobs={jobs}
         onDeleteJob={handleDeleteJob}
         onEditJob={handleEditJob}
-        onViewClick={handleViewJob} // ✅ pass this to fix the error
+        onViewClick={handleViewJob}
       />
       {selectedJob && (
-        <JobDetails job={selectedJob} />
+        <JobDetails job={selectedJob} onClose={handleCloseDetails} />
       )}
     </div>
   );

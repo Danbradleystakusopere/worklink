@@ -1,0 +1,24 @@
+.proposal-list {
+  background-color: #f1f1f1;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.proposal-list h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.proposal-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.proposal-list li {
+  background: white;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
