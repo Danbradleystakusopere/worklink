@@ -1,4 +1,5 @@
 import { useState } from "react";
+import JobCard from "./JobCard"; 
 import "./JobList.css";
 
 function JobList({ jobs, onDeleteJob, onEditJob }) {
@@ -27,10 +28,13 @@ function JobList({ jobs, onDeleteJob, onEditJob }) {
   return (
     <div className="job-list">
       <h2>Available Jobs</h2>
-      {jobs.map((job) => (
-        <div className="job-card" key={job.id}>
-          {editingJobId === job.id ? (
-            <>
+
+      {jobs.length === 0 ? (
+        <p style={{ fontStyle: "italic", color: "gray" }}>No jobs found.</p>
+      ) : (
+        jobs.map((job) =>
+          editingJobId === job.id ? (
+            <div className="job-card" key={job.id}>
               <input
                 value={editedData.title}
                 onChange={(e) =>
@@ -51,19 +55,17 @@ function JobList({ jobs, onDeleteJob, onEditJob }) {
               />
               <button onClick={() => handleSaveClick(job.id)}>Save</button>
               <button onClick={() => setEditingJobId(null)}>Cancel</button>
-            </>
+            </div>
           ) : (
-            <>
-              <h3>{job.title}</h3>
-              <p>{job.description}</p>
-              <small>Category: {job.category}</small>
-              <br />
-              <button onClick={() => handleEditClick(job)}>Edit</button>
-              <button onClick={() => onDeleteJob(job.id)}>Delete</button>
-            </>
-          )}
-        </div>
-      ))}
+            <JobCard
+              key={job.id}
+              job={job}
+              onDeleteJob={onDeleteJob}
+              onEditClick={handleEditClick}
+            />
+          )
+        )
+      )}
     </div>
   );
 }
