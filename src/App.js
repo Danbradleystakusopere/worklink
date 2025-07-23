@@ -15,11 +15,39 @@ function App() {
     setJobs((prevJobs) => [...prevJobs, newJob]);
   }
 
+  function handleDeleteJob(id) {
+    fetch(`http://localhost:3001/jobs/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
+    });
+  }
+
+  function handleEditJob(updatedJob) {
+    fetch(`http://localhost:3001/jobs/${updatedJob.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedJob),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setJobs((prevJobs) =>
+          prevJobs.map((job) => (job.id === data.id ? data : job))
+        );
+      });
+  }
+
   return (
     <div className="App">
       <h1>WorkLink - Remote Jobs Board</h1>
       <JobForm onAddJob={handleAddJob} />
-      <JobList jobs={jobs} /> {/* ✅ This fixes the warning */}
+      <JobList
+        jobs={jobs}
+        onDeleteJob={handleDeleteJob}
+        onEditJob={handleEditJob}
+      />
     </div>
   );
 }

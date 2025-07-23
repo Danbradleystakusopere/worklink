@@ -1,10 +1,28 @@
 {
   "jobs": [
     {
-      "id": "b611",
-      "title": "Software Engineer",
-      "description": "Coding skills",
-      "category": "Web Development"
+      "id": 1,
+      "title": "Frontend Developer",
+      "description": "Build UI in React",
+      "category": "Development"
+    },
+    {
+      "id": 2,
+      "title": "Content Writer",
+      "description": "Write blogs and tutorials",
+      "category": "Writing"
+    },
+    {
+      "id": 3,
+      "title": "Backend Engineer",
+      "description": "Work with Node.js and databases",
+      "category": "Development"
+    },
+    {
+      "id": 4,
+      "title": "Marketing Specialist",
+      "description": "Create campaigns to increase brand awareness",
+      "category": "Marketing"
     }
   ]
 }
