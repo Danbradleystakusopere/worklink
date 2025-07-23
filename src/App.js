@@ -50,6 +50,12 @@ function App() {
     setSelectedJob(null);
   }
 
+  
+  function handleProposalSubmit(newProposal) {
+    console.log("Proposal submitted:", newProposal);
+    
+  }
+
   return (
     <Router>
       <div className="App">
@@ -74,7 +80,11 @@ function App() {
               </>
             }
           />
-          <Route path="/proposals" element={<ProposalForm />} />
+          {}
+          <Route
+            path="/proposals"
+            element={<ProposalForm onProposalSubmit={handleProposalSubmit} />}
+          />
         </Routes>
       </div>
     </Router>
