@@ -22,3 +22,27 @@
   border-radius: 6px;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
 }
+.proposal-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.proposal-list li {
+  margin-bottom: 12px;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.proposal-list button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.proposal-list button:hover {
+  background-color: #c0392b;
+}
