@@ -35,7 +35,7 @@
 }
 
 .proposal-list button {
-  background-color: #e74c3c;
+  background-color: #dab3af;
   color: white;
   border: none;
   padding: 4px 8px;
@@ -44,5 +44,5 @@
 }
 
 .proposal-list button:hover {
-  background-color: #c0392b;
+  background-color: #c4aaa7;
 }

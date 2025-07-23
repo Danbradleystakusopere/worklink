@@ -5,10 +5,12 @@ import JobForm from "./components/JobForm";
 import JobList from "./components/JobList";
 import JobDetails from "./components/JobDetails";
 import ProposalForm from "./components/ProposalForm";
+import "./App.css"; 
 
 function App() {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
+  const [darkMode, setDarkMode] = useState(false); 
 
   useEffect(() => {
     fetch("http://localhost:3001/jobs")
@@ -50,16 +52,18 @@ function App() {
     setSelectedJob(null);
   }
 
-  
   function handleProposalSubmit(newProposal) {
     console.log("Proposal submitted:", newProposal);
-    
+  }
+
+  function toggleDarkMode() {
+    setDarkMode((prev) => !prev);
   }
 
   return (
     <Router>
-      <div className="App">
-        <NavBar />
+      <div className={`App ${darkMode ? "dark" : "light"}`}>
+        <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <h1>WorkLink - Remote Jobs Board</h1>
 
         <Routes>
@@ -80,7 +84,6 @@ function App() {
               </>
             }
           />
-          {}
           <Route
             path="/proposals"
             element={<ProposalForm onProposalSubmit={handleProposalSubmit} />}
