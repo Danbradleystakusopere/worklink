@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./JobForm.css"; // Import your CSS file
+import "./JobForm.css"; 
 
 
 function JobForm({ onAddJob }) {

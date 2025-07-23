@@ -2,7 +2,7 @@ import { useState } from "react";
 import JobCard from "./JobCard"; 
 import "./JobList.css";
 
-function JobList({ jobs, onDeleteJob, onEditJob }) {
+function JobList({ jobs, onDeleteJob, onEditJob, onViewClick }) {
   const [editingJobId, setEditingJobId] = useState(null);
   const [editedData, setEditedData] = useState({
     title: "",
@@ -62,6 +62,7 @@ function JobList({ jobs, onDeleteJob, onEditJob }) {
               job={job}
               onDeleteJob={onDeleteJob}
               onEditClick={handleEditClick}
+              onViewClick={onViewClick} 
             />
           )
         )
